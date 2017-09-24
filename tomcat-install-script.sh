@@ -2,40 +2,38 @@
 
 TOMCAT_URL="http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.0.46/bin/apache-tomcat-8.0.46.tar.gz"
 
-function validate_java_home {
+function check_java_home {
     if [ -z ${JAVA_HOME} ]
     then
-        # do something if the file doesn't provide ${JAVA_HOME}
-	echo 'Could not find JAVA_HOME. Please set JAVA_HOME'
+        echo 'Could not find JAVA_HOME. Please install Java and set JAVA_HOME'
 	exit
     else 
 	echo 'JAVA_HOME found: '$JAVA_HOME
         if [ ! -e ${JAVA_HOME} ]
         then
-            # do something if the file provides a non existent ${JAVA_HOME}
-	    echo 'Invalid JAVA_HOME'
+	    echo 'Invalid JAVA_HOME. Make sure your JAVA_HOME path exists'
 	    exit
         fi
     fi
 }
 
-echo 'Installin tomcat server...'
+echo 'Installing tomcat server...'
 echo 'Checking for JAVA_HOME...'
-validate_java_home
+check_java_home
 
 echo 'Downloading tomcat-8.0...'
 if [ ! -f /etc/apache-tomcat-8*tar.gz ]
 then
     curl -O $TOMCAT_URL
 fi
-echo 'Finished downloading..'
+echo 'Finished downloading...'
 
-echo 'Creating install directories'
+echo 'Creating install directories...'
 sudo mkdir -p '/opt/tomcat/8_0'
 
 if [ -d "/opt/tomcat/8_0" ]
 then
-    echo 'Extracting content to install directory..'
+    echo 'Extracting binaries to install directory...'
     sudo tar xzf apache-tomcat-8*tar.gz -C "/opt/tomcat/8_0" --strip-components=1
     echo 'Creating tomcat user group...'
     sudo groupadd tomcat
