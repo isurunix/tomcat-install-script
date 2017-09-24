@@ -1,5 +1,5 @@
 # tomcat-install-script
-Bash script to download and install Apache TomCat server.  
+Bash script to download and install Apache Tomcat server.  
 
 This is a simple script to download and install tomcat server on Ubuntu.  
 Since this is a BASH script this should work on most of the Linux distribution with BASH.  
@@ -22,4 +22,5 @@ This list outs the distributions the script was tested on and worked successfull
 After running the script you need to create tomcat user accounts with proper roles to use this in a developer enviorenment. This script only install tomcat server as a service on your Ubuntu system.
 
 # References
+https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04
 
