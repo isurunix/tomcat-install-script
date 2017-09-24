@@ -11,8 +11,15 @@ tweak this.
 1. Bash
 2. curl
 
-# Supported distributions
+# Supported Distributions
 
 This list outs the distributions the script was tested on and worked successfully. You are welcome to add your test results here.
 
 1. Ubuntu 16.04
+
+# Notes
+
+After running the script you need to create tomcat user accounts with proper roles to use this in a developer enviorenment. This script only install tomcat server as a service on your Ubuntu system.
+
+# References
+
